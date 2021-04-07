@@ -14,7 +14,7 @@ namespace ariel
     public:
         Board()
         {
-            board = std::vector<std::vector<char>>(10, std::vector<char>(10, '_')); //first start with 10x10 with '_'
+            board = std::vector<std::vector<char>>(10, std::vector<char>(10, '_'));
             maxRow =  maxCol = 10;
         }
         ~Board() {}
