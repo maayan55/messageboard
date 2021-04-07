@@ -1,22 +1,28 @@
 #include <string>
 #include <vector>
 #include "Direction.hpp"
-using namespace std;
-namespace ariel{
 
-    class Board{
-        unsigned int row;
-        unsigned int col;
-        vector<vector<char>> m;
+namespace ariel
+{
+    class Board
+    {
+    private: //2 private method, for max row and max column (unsinged ofcourse)
+        uint maxRow, maxCol;
 
-        public:
-            Board(){
-                row=1;
-                col=1;
-                m=vector<vector<char>>(1,vector<char>(1,'_'));
-            }
-            void post(unsigned int i, unsigned int j, ariel::Direction d, string ad);
-            string read(unsigned int i, unsigned int j, ariel::Direction d, unsigned int k);
-            void show();
+        std::vector<std::vector<char>> board;
+
+    public:
+        Board()
+        {
+            board = std::vector<std::vector<char>>(10, std::vector<char>(10, '_')); //first start with 10x10 with '_'
+            maxRow =  maxCol = 10;
+        }
+        ~Board() {}
+        void post(uint row, uint column, Direction direction, std::string message); 
+        std::string read(uint row, uint column, Direction direction, uint num);
+        void show();
+        void setSize(uint rows, uint columns);
     };
+    
+
 }
